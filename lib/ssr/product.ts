@@ -47,7 +47,7 @@ export const productPaths = async () => {
           paths.push({
             params: {
               channel: channelSlug,
-              locale: locale,
+              locale: locale.slug,
               slug,
             },
           });
