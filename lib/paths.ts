@@ -1,10 +1,7 @@
-import { useRouter } from "next/router";
-
+import useRegions from "@/components/RegionsProvider/useChannels";
 import { pagesPath } from "@/lib/$path";
 
 export const usePaths = () => {
-  const { query } = useRouter();
-  const channel = query.channel?.toString() || "default-channel";
-  const locale = query.locale?.toString() || "en-US";
-  return { paths: pagesPath._channel(channel)._locale(locale) };
+  const { currentChannel, currentLocale: locale } = useRegions();
+  return { paths: pagesPath._channel(currentChannel.slug)._locale(locale) };
 };

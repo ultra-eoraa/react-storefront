@@ -3,10 +3,10 @@ import React, { useEffect } from "react";
 
 import { saleorClient } from "@/lib/graphql";
 
-import useChannels from "../ChannelsProvider/useChannels";
+import useRegions from "../RegionsProvider/useChannels";
 
 const SaleorProviderWithChannels: React.FC = ({ children }) => {
-  const { currentChannel } = useChannels();
+  const { currentChannel } = useRegions();
 
   const {
     config: { setChannel },

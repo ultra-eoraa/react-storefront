@@ -6,7 +6,7 @@ import { clearCheckout } from "@/lib/checkout";
 import { LOCALES } from "@/lib/regions";
 
 import { Button } from "../Button";
-import useChannels from "../ChannelsProvider/useChannels";
+import useRegions from "../RegionsProvider/useChannels";
 
 interface RegionDialogProps {
   onClose: () => void;
@@ -20,7 +20,7 @@ export interface RegionFormData {
 
 const RegionDialog: React.FC<RegionDialogProps> = ({ isOpen, onClose }) => {
   const router = useRouter();
-  const { channels, currentChannel, setCurrentChannel } = useChannels();
+  const { channels, currentChannel, setCurrentChannel } = useRegions();
   const { register: register, handleSubmit: handleSubmit } =
     useForm<RegionFormData>({
       defaultValues: {
