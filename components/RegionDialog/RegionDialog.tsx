@@ -20,12 +20,13 @@ export interface RegionFormData {
 
 const RegionDialog: React.FC<RegionDialogProps> = ({ isOpen, onClose }) => {
   const router = useRouter();
-  const { channels, currentChannel, setCurrentChannel } = useRegions();
+  const { channels, currentChannel, setCurrentChannel, currentLocale } =
+    useRegions();
   const { register: register, handleSubmit: handleSubmit } =
     useForm<RegionFormData>({
       defaultValues: {
-        channel: currentChannel.slug || "default-channel",
-        locale: router.locale || "en-US",
+        channel: currentChannel.slug,
+        locale: currentLocale,
       },
     });
   const onSubmit = handleSubmit(async (formData: RegionFormData) => {
